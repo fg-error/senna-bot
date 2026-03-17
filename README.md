@@ -12,33 +12,16 @@
 <a href="https://github.com/fg-error/senna-bot/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/fg-error/senna-bot?label=Watching&style=social"></a>
 </p>
 
-
-
 <h3 align="center">WHATSAPP BOT</h3>
 
 ***
 ### Información
 - Cambie número de dueño en [Config](https://github.com/fg-error/senna-bot/blob/main/config.js#L6)
-
-### FREE APIKEY
--  [click aquí](https://api.fgmods.xyz)
-
+- 
 ### Ejemplo 
 En caso de duda, antes de instalar dylux-bot, pruebe el bot aquí
 
 [![WhatsApp](https://img.shields.io/badge/DyLux-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://instabio.cc/fg98ff) 
-
-
-***
-
-#### Deploy to Heroku
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/fg-error/senna-bot)
-
-#### Heroku Buildpack
-| BuildPack | LINK |
-|--------|--------|
-| **FFMPEG** |[click](https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest) |
-| **IMAGEMAGICK** | [click](https://github.com/DuckyTeam/heroku-buildpack-imagemagick) |
 
 ### TERMUX
 1. 

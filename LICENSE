@@ -1,0 +1,71 @@
+                     SENNA BOT
+Basada en GNU General Public License v3.0
+Copyright (C) 2026 FG98
+
+Este proyecto está licenciado bajo los términos de la
+GNU General Public License versión 3 (GPL-3.0),
+con los siguientes términos adicionales:
+
+=================================================================
+PERMISOS
+=================================================================
+
+Se permite:
+
+1. Usar el software para fines personales, educativos o privados.
+2. Modificar el código fuente.
+3. Compartir el código original o modificado.
+4. Crear forks del proyecto.
+
+=================================================================
+CONDICIONES OBLIGATORIAS
+=================================================================
+
+1. El código fuente debe mantenerse bajo la misma licencia (GPL-3.0).
+2. Debe mantenerse el crédito al autor original (FG98).
+3. No se permite eliminar avisos de copyright.
+4. Toda versión modificada debe indicar claramente que ha sido modificada.
+
+=================================================================
+RESTRICCIONES ADICIONALES
+=================================================================
+
+1. Queda estrictamente prohibida la venta directa del código fuente,
+   ya sea original o modificado.
+
+2. No está permitido redistribuir este software como producto comercial
+   independiente sin autorización explícita del autor.
+
+3. No se permite cambiar el nombre del proyecto para redistribuirlo
+   como si fuera una creación propia.
+
+4. El uso comercial (incluyendo venta del código o redistribución paga)
+   requiere autorización expresa del autor.
+
+=================================================================
+SERVICIOS DE HOSTING
+=================================================================
+
+Se permite ofrecer servicios de alojamiento (hosting) del bot,
+siempre que:
+
+- El código fuente permanezca público.
+- Se mantenga esta licencia.
+- Se conserve el crédito original.
+
+=================================================================
+RESPONSABILIDAD
+=================================================================
+
+Este software se proporciona "TAL CUAL",
+sin garantía de ningún tipo.
+El autor no se hace responsable por daños,
+mal uso o pérdidas derivadas del uso del software.
+
+=================================================================
+
+Cualquier violación de estos términos será considerada
+infracción de derechos de autor.
+
+Para permisos comerciales, contactar con el autor:
+FG98

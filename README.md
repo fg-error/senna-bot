@@ -7,9 +7,9 @@
 <p/>
 <p align="center">
 <a href="https://github.com/fg-error?tab=followers"><img title="Followers" src="https://img.shields.io/github/followers/fg-error?label=Followers&style=social"></a>
-<a href="https://github.com/fg-error/dylux-bot/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/fg-error/dylux-bot?&style=social"></a>
-<a href="https://github.com/fg-error/dylux-bot/network/members"><img title="Fork" src="https://img.shields.io/github/forks/fg-error/dylux-bot?style=social"></a>
-<a href="https://github.com/fg-error/dylux-bot/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/fg-error/dylux-bot?label=Watching&style=social"></a>
+<a href="https://github.com/fg-error/senna-bot/stargazers/"><img title="Stars" src="https://img.shields.io/github/stars/fg-error/senna-bot?&style=social"></a>
+<a href="https://github.com/fg-error/senna-bot/network/members"><img title="Fork" src="https://img.shields.io/github/forks/fg-error/senna-bot?style=social"></a>
+<a href="https://github.com/fg-error/senna-bot/watchers"><img title="Watching" src="https://img.shields.io/github/watchers/fg-error/senna-bot?label=Watching&style=social"></a>
 </p>
 
 
@@ -18,7 +18,7 @@
 
 ***
 ### Información
-- Cambie número de dueño en [Config](https://github.com/fg-error/dylux-bot/blob/main/config.js#L6)
+- Cambie número de dueño en [Config](https://github.com/fg-error/senna-bot/blob/main/config.js#L6)
 
 ### FREE APIKEY
 -  [click aquí](https://api.fgmods.xyz)
@@ -32,7 +32,7 @@ En caso de duda, antes de instalar dylux-bot, pruebe el bot aquí
 ***
 
 #### Deploy to Heroku
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/fg-error/dylux-bot)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/fg-error/senna-bot)
 
 #### Heroku Buildpack
 | BuildPack | LINK |
@@ -48,7 +48,7 @@ $ pkg install git -y
 $ pkg install nodejs -y
 $ pkg install ffmpeg -y
 $ pkg install imagemagick -y
-$ git clone https://github.com/fg-error/dylux-bot
+$ git clone https://github.com/fg-error/senna-bot
 $ cd dylux-bot
 $ npm i 
 $ npm start

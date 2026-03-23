@@ -19,7 +19,7 @@
 - Cambie número de dueño en [Config](https://github.com/fg-error/senna-bot/blob/main/config.js#L6)
 - 
 ### Ejemplo 
-En caso de duda, antes de instalar dylux-bot, pruebe el bot aquí
+En caso de duda, antes de instalar senna-bot, pruebe el bot aquí
 
 [![WhatsApp](https://img.shields.io/badge/DyLux-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://instabio.cc/fg98ff) 
 
@@ -32,7 +32,7 @@ $ pkg install nodejs -y
 $ pkg install ffmpeg -y
 $ pkg install imagemagick -y
 $ git clone https://github.com/fg-error/senna-bot
-$ cd dylux-bot
+$ cd senna-bot
 $ npm i 
 $ npm start
 ```

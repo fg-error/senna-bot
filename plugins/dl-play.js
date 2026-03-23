@@ -29,7 +29,7 @@ let msg = `≡ *FG MUSIC*
 ▢ 👀 *Vistas:* ${views.toLocaleString()}
 └──────────────
 
-Responde al mensaje:
+Responde al mensaje con 1 o 2:
 
 1 = MP3
 2 = MP4
@@ -41,8 +41,8 @@ await conn.sendFile(m.chat, thumbnail, "play.jpg", msg, m)
     confirmation[m.sender] = {
         sender: m.sender,
         to: who,
-        url: url, // Aquí pasamos la URL
-        chat: chat, // Aquí pasas el objeto chat también
+        url: url, 
+        chat: chat, 
         timeout: setTimeout(() => {
             delete confirmation[m.sender];
 

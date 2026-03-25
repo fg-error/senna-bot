@@ -1,14 +1,14 @@
 import { createHash } from 'crypto'
 
 let handler = async function (m, { conn, text, usedPrefix }) {
-let sn = createHash('md5').update(m.sender).digest('hex')
+const serial = createHash('md5').update(m.sender).digest('base64').replace(/[^a-zA-Z0-9]/g, '').slice(0, 8)
 m.reply(`
-▢ *Num Serie* : ${sn}
+▢ *Tu Serial* : ${serial}
 `, null, fwc)
 }
-handler.help = ['mysn']
+handler.help = ['serial']
 handler.tags = ['rg']
-handler.command = ['nserie', 'sn', 'mysn'] 
+handler.command = ['nserie', 'sn', 'mysn', "resial"] 
 handler.register = true
 
 export default handler

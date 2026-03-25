@@ -1,75 +1,99 @@
 import { createHash } from 'crypto'
 
+const REGEX = /^\s*([^+|]+?)\s*[\+|]\s*([0-9]{1,3})\s*[\+|]\s*([MFN])\s*$/i
+
 let handler = async function (m, { conn, text, usedPrefix, command }) {
 
-  text = text || m.text || ''
-  text = text.trim()
+  let user = global.db.data.users[m.sender] || {}
 
-  let user = global.db.data.users[m.sender]
+  // Verificar si ya está registrado
+ if (user.registered) throw `✅ Ya estás registrado.\n\nUsa *${usedPrefix}unreg <sn>* para eliminar tu registro.`
+  
 
-  if (user.registered)
-    return m.reply(`✳️ Ya estás registrado.\nUsa ${usedPrefix}unreg <sn> para eliminar tu registro.`)
+  text = (text || '').trim()
 
-  let ejemplo = `✳️ Uso correcto:
-${usedPrefix + command} Nombre+Edad+Genero
+  const ayuda = `📌 *Formato incorrecto*
 
-Ejemplo:
-${usedPrefix + command} FG+20+M
+👉 Usa el comando así:
+*${usedPrefix + command} Nombre+Edad+Género*
 
-M = Hombre
-F = Mujer
-N = Otro`
+📍 Ejemplo:
+*${usedPrefix + command} FG+20+M*
 
-  // 🔥 SEPARAMOS MANUALMENTE (SIN REGEX PROBLEMÁTICA)
-  let parts = text.split('+')
+📋 Géneros disponibles:
+- *M* → Hombre
+- *F* → Mujer
+- *N* → Otro`
 
-  if (parts.length !== 3) return m.reply(ejemplo)
+  // Validar formato
+  if (!REGEX.test(text)) throw ayuda
 
-  let name = parts[0].trim()
-  let age = parseInt(parts[1])
-  let gen = parts[2].trim().toUpperCase()
+  const match = text.match(REGEX)
+  if (!match) throw ayuda
 
-  if (!name || !age || !gen) return m.reply(ejemplo)
+  let [, nombre, edadRaw, generoRaw] = match
 
-  if (name.length > 30)
-    return m.reply('✳️ El nombre es demasiado largo.')
+  // Limpiar nombre
+  nombre = nombre.replace(/[^\p{L}\p{N} ]/gu, '').trim()
 
-  if (age < 10)
-    return m.reply('🚼 Eres muy pequeño.')
+  if (!nombre) throw '❌ El nombre no puede estar vacío.'
+  if (nombre.length > 30) throw '❌ El nombre es demasiado largo (máx. 30 caracteres).'
 
-  if (age > 60)
-    return m.reply('👴🏻 Wow el abuelo quiere jugar.')
+  // Validar edad
+  let edad = parseInt(edadRaw)
 
-  if (!['M','F','N'].includes(gen))
-    return m.reply('✳️ Género inválido. Usa M, F o N.')
+  if (isNaN(edad)) throw '❌ La edad debe ser un número válido.'
+  if (edad < 10) throw '🚼 Debes tener al menos 10 años para registrarte.'
+  if (edad > 60) throw '👴 Edad fuera del rango permitido.'
 
-  let genero =
-    gen === 'M' ? '🙆🏻‍♂️ Hombre' :
-    gen === 'F' ? '🤵🏻‍♀️ Mujer' :
-    '⚧ Otro'
+  // Validar género
+  let generoKey = generoRaw.toUpperCase()
 
-  user.name = name
-  user.age = age
+  const generos = {
+    M: '🙆🏻‍♂️ Hombre',
+    F: '🤵🏻‍♀️ Mujer',
+    N: '⚧ Otro'
+  }
+
+  const genero = generos[generoKey]
+
+  if (!genero) {
+    throw `❌ Género inválido.
+
+Usa:
+- M (Hombre)
+- F (Mujer)
+- N (Otro)`
+  }
+
+  // Foto de perfil 
+  let foto = await conn.profilePictureUrl(m.sender, 'image').catch(() => './src/avatar_contact.png')
+
+  // Generar serial único
+ const serial = createHash('md5').update(m.sender).digest('base64').replace(/[^a-zA-Z0-9]/g, '').slice(0, 8)
+
+  // Guardar datos
+  user.name = nombre
+  user.age = edad
   user.genero = genero
   user.regTime = Date.now()
   user.registered = true
 
-  let sn = createHash('md5').update(m.sender).digest('hex')
+  global.db.data.users[m.sender] = user
 
-  let msg = `
-┌─「 REGISTRADO 」─
-▢ Nombre: ${name}
-▢ Edad: ${age}
-▢ Género: ${genero}
-▢ Serial:
-${sn}
-└──────────────`
+  const mensaje = `
+┌─「 ✅ REGISTRADO 」─
+▢ 👤 Nombre: ${nombre}
+▢ 🎂 Edad: ${edad}
+▢ ⚧ Género: ${genero}
+▢ 🔑 Serial: ${serial}
+└──────────────`.trim()
 
-  await conn.reply(m.chat, msg.trim(), m)
+  await conn.sendFile(m.chat, foto, 'registro.jpg', mensaje, m)
 }
 
-handler.help = ['reg Nombre+Edad+Genero']
+handler.help = ['reg <nombre+edad+género>']
 handler.tags = ['rg']
-handler.command = ['reg','register','registrar','verify']
+handler.command = ['reg', 'register', 'registrar', 'verify']
 
 export default handler

@@ -10,7 +10,7 @@ global.owner = [
 
 global.mods = [''] 
 global.prems = ['50489079501', '573143917092']
-global.botNumber = ['5492622613959']  //-- numero del bot
+global.botNumber = ['']  //-- numero del bot
 global.APIs = { // API Prefix
   // name: 'https://website' 
   nrtm: 'https://fg-nrtm.ddns.net',
